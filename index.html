@@ -23,6 +23,7 @@
       href="https://fonts.googleapis.com/css2?family=Klee+One&display=swap"
       rel="stylesheet"
     />
+    <script src="https://cdn.jsdelivr.net/npm/axios@1.1.2/dist/axios.min.js"></script>
   </head>
   <body>
     <div class="container">
@@ -40,13 +41,13 @@
         </form>
         <div class="current-data">
           <div class="row">
-            <div class="col city-name">CityName</div>
+            <div class="col city-name" id="current-city-name">CityName</div>
             <div class="col">
-              <span class="emoji">🌤️</span>
-              <span class="degree">0</span>
+              <span class="emoji" id="current-emoji">🌤️</span>
+              <span class="degree" id="current-degree">0</span>
               <span class="celsius">C°</span>
               <br />
-              <span class="condition">Condition</span>
+              <span class="condition" id="current-condition">Condition</span>
             </div>
             <div class="col">
               <span class="time">Hour</span>
