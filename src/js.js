@@ -23,3 +23,19 @@ function showPlace(position) {
     currentHumid.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   }
 }
+let now = newDate();
+let currentHour = document.querySelector("#current-hour");
+let currentDay = document.querySelector("#current-day");
+let days = [
+  "Monday",
+  "Tuesday",
+  "Wednesday",
+  "Thursday",
+  "Friday",
+  "Saturday",
+  "Sunday",
+];
+currentDay.innerHTML = days[now.getDay()];
+let hourNow = now.getHours();
+let minutesNoW = now.getMinutes();
+currentHour.innerHTML = `${hourNow} : ${minutesNow}`;
