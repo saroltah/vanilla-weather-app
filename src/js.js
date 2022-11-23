@@ -24,18 +24,17 @@ function showPlace(position) {
   }
 }
 let now = new Date();
-let currentHour = document.querySelector("#current-hour");
+
 let currentDay = document.querySelector("#current-day");
 let days = [
+  "Sunday",
   "Monday",
   "Tuesday",
   "Wednesday",
   "Thursday",
   "Friday",
   "Saturday",
-  "Sunday",
 ];
 currentDay.innerHTML = days[now.getDay()];
-let hourNow = now.getHours();
-let minutesNoW = now.getMinutes();
-currentHour.innerHTML = `${hourNow} : ${minutesNow}`;
+let currentHour = document.querySelector("#current-hour");
+currentHour.innerHTML = `${now.getHours()} : ${now.getMinutes()}`;
