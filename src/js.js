@@ -12,8 +12,14 @@ function showPlace(position) {
     let currentCityName = document.querySelector("#current-city-name");
     let currentDegree = document.querySelector("#current-degree");
     let currentCondition = document.querySelector("#current-condition");
+    let currentWind = document.querySelector("#current-wind");
+    let currentHumid = document.querySelector("#current-humid");
     currentCityName.innerHTML = response.data.name;
     currentDegree.innerHTML = Math.round(response.data.main.temp);
     currentCondition.innerHTML = response.data.weather[0].main;
+    currentWind.innerHTML = `Wind: ${Math.round(
+      response.data.wind.speed
+    )} km/h`;
+    currentHumid.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   }
 }

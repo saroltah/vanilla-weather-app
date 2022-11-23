@@ -15,6 +15,7 @@
   border: 1px solid rgba(219, 51, 177, 0.7);
   border-radius: 10px;
   box-shadow: 16px 3px 28px 5px rgba(163, 27, 225, 0.2);
+  text-align: center;
 }
 .type-city:hover {
   border: 2px solid rgba(219, 51, 177, 0.7);
@@ -28,13 +29,20 @@
 .search:hover {
   border: 1px solid black;
 }
+.current-time {
+  font-weight: bold;
+  font-size: 18px;
+  margin-bottom: 30px;
+}
 .current-data {
   margin-bottom: 20px;
   font-size: 18px;
 }
 .city-name {
   font-weight: bold;
+  font-size: 20px;
 }
+
 .next-dayname {
   font-weight: bold;
   color: rgba(219, 51, 177, 0.7);

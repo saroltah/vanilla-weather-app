@@ -28,17 +28,26 @@
   <body>
     <div class="container">
       <div class="weather-app">
-        <form class="search-engine">
-          <input
-            class="type-city"
-            id="type-city"
-            type="text"
-            placeholder="Type a city"
-            autofocus="on"
-            autocomplete="off"
-          />
-          <input class="search" type="submit" value="Search" />
-        </form>
+        <div class="row">
+          <div class="col-8">
+            <form class="search-engine">
+              <input
+                class="type-city"
+                id="type-city"
+                type="text"
+                placeholder="Type a city"
+                autofocus="on"
+                autocomplete="off"
+              />
+              <input class="search" type="submit" value="Search" />
+            </form>
+          </div>
+          <div class="col-1 current-time">
+            <span class="time">Hour</span>
+            <br />
+            <span class="date">Date</span>
+          </div>
+        </div>
         <div class="current-data">
           <div class="row">
             <div class="col city-name" id="current-city-name">CityName</div>
@@ -50,9 +59,9 @@
               <span class="condition" id="current-condition">Condition</span>
             </div>
             <div class="col">
-              <span class="time">Hour</span>
+              <span class="wind" id="current-wind">Wind</span>
               <br />
-              <span class="date">Date</span>
+              <span class="humid" id="current-humid">Humidity</span>
             </div>
           </div>
         </div>
