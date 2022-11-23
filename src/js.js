@@ -23,7 +23,7 @@ function showPlace(position) {
     currentHumid.innerHTML = `Humidity: ${response.data.main.humidity}%`;
   }
 }
-let now = newDate();
+let now = new Date();
 let currentHour = document.querySelector("#current-hour");
 let currentDay = document.querySelector("#current-day");
 let days = [
