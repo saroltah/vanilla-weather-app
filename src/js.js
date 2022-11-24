@@ -21,6 +21,12 @@ function showPlace(position) {
       response.data.wind.speed
     )} km/h`;
     currentHumid.innerHTML = `Humidity: ${response.data.main.humidity}%`;
+    let CurrentEmoji = document.querySelector(`#current-emoji`);
+    CurrentEmoji.setAttribute(
+      "src",
+      `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
+    );
+    CurrentEmoji.setAttribute("alt", `${response.data.weather[0].description}`);
   }
 }
 let now = new Date();
