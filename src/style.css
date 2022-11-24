@@ -45,6 +45,10 @@
   position: relative;
   bottom: 10px;
 }
+.condition {
+  position: relative;
+  bottom: 12px;
+}
 .city-name {
   font-weight: bold;
   font-size: 20px;
