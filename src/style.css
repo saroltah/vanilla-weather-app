@@ -41,7 +41,10 @@
 .emoji {
   width: 50px;
 }
-
+.too-big-icon {
+  position: relative;
+  bottom: 10px;
+}
 .city-name {
   font-weight: bold;
   font-size: 20px;
