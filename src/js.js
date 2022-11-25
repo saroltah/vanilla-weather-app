@@ -1,10 +1,11 @@
+//opening page
+
 navigator.geolocation.getCurrentPosition(showPlace);
 function showPlace(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
 
   let apiKey = "1fa04c70c5487af6b7c48dd7dfcb0b3f";
-  let cityInput = "Copenhagen";
   let units = "metric";
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   axios.get(apiURL).then(showTemperature);
@@ -27,8 +28,33 @@ function showPlace(position) {
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
     CurrentEmoji.setAttribute("alt", `${response.data.weather[0].description}`);
+
+    let changeCelcius = document.querySelector("#celsius");
+    let changeFharenheit = document.querySelector("#fharenheit");
+    changeFharenheit.classList.add("link-like");
+
+    changeCelcius.addEventListener("click", convertCelsius);
+    function convertCelsius(event) {
+      event.preventDefault();
+      changeCelcius.classList.remove("link-like");
+      changeFharenheit.classList.add("link-like");
+      currentDegree.innerHTML = Math.round(response.data.main.temp);
+    }
+
+    changeFharenheit.addEventListener("click", convertFharenheit);
+    function convertFharenheit(event) {
+      event.preventDefault();
+      changeFharenheit.classList.remove("link-like");
+      changeCelcius.classList.add("link-like");
+      currentDegree.innerHTML = Math.round(
+        response.data.main.temp * 1.8 + 32.0
+      );
+    }
   }
 }
+
+//date
+
 let now = new Date();
 
 let currentDay = document.querySelector("#current-day");
@@ -44,6 +70,8 @@ let days = [
 currentDay.innerHTML = days[now.getDay()];
 let currentHour = document.querySelector("#current-hour");
 currentHour.innerHTML = `${now.getHours()} : ${now.getMinutes()}`;
+
+//search button
 
 let searchCity = document.querySelector("#search-city");
 searchCity.addEventListener("submit", chooseCity);
@@ -73,5 +101,28 @@ function chooseCity(event) {
       `http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`
     );
     CurrentEmoji.setAttribute("alt", `${response.data.weather[0].description}`);
+
+    let changeCelcius = document.querySelector("#celsius");
+    let changeFharenheit = document.querySelector("#fharenheit");
+    changeFharenheit.classList.add("link-like");
+    changeCelcius.classList.remove("link-like");
+
+    changeCelcius.addEventListener("click", convertCelsius);
+    function convertCelsius(event) {
+      event.preventDefault();
+      changeCelcius.classList.remove("link-like");
+      changeFharenheit.classList.add("link-like");
+      currentDegree.innerHTML = Math.round(response.data.main.temp);
+    }
+
+    changeFharenheit.addEventListener("click", convertFharenheit);
+    function convertFharenheit(event) {
+      event.preventDefault();
+      changeFharenheit.classList.remove("link-like");
+      changeCelcius.classList.add("link-like");
+      currentDegree.innerHTML = Math.round(
+        response.data.main.temp * 1.8 + 32.0
+      );
+    }
   }
 }

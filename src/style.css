@@ -69,3 +69,10 @@
 small {
   font-style: italic;
 }
+.link-like {
+  color: #69aadd;
+  text-decoration: underline #69aadd;
+}
+.link-like:hover {
+  cursor: pointer;
+}
