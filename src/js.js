@@ -17,7 +17,7 @@ function showPlace(position) {
     let currentHumid = document.querySelector("#current-humid");
     currentCityName.innerHTML = response.data.name;
     currentDegree.innerHTML = Math.round(response.data.main.temp);
-    currentCondition.innerHTML = response.data.weather[0].main;
+    currentCondition.innerHTML = response.data.weather[0].description;
     currentWind.innerHTML = `Wind: ${Math.round(
       response.data.wind.speed
     )} km/h`;
@@ -90,7 +90,7 @@ function chooseCity(event) {
     let currentHumid = document.querySelector("#current-humid");
     currentCityName.innerHTML = response.data.name;
     currentDegree.innerHTML = Math.round(response.data.main.temp);
-    currentCondition.innerHTML = response.data.weather[0].main;
+    currentCondition.innerHTML = response.data.weather[0].description;
     currentWind.innerHTML = `Wind: ${Math.round(
       response.data.wind.speed
     )} km/h`;
