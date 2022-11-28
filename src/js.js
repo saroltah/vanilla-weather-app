@@ -126,3 +126,34 @@ function chooseCity(event) {
     }
   }
 }
+//forecast
+
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+  let forecastHTML = `<div class="row">`;
+  let futureDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+  futureDays.forEach(function (futureDay) {
+    forecastHTML =
+      forecastHTML +
+      `<div class="col">
+              <span class="next-dayname">${futureDay}</span>
+              <br />
+              <img
+                class="next-emoji"
+                id="next-emoji-0"
+                src="http://openweathermap.org/img/wn/01d@2x.png"
+                alt="icon"
+              />
+
+              <br />
+              <span class="next-degree">0  1</span>
+              <br />
+        <span class="next-condition">Condi</span>
+       
+          </div>
+          `;
+  });
+
+  forecastElement.innerHTML = forecastHTML;
+}
+displayForecast();

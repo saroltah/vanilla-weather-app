@@ -53,6 +53,8 @@
   font-weight: bold;
   font-size: 20px;
 }
+.condition,
+.next-condition,
 small {
   font-style: italic;
 }
@@ -62,4 +64,14 @@ small {
 }
 .link-like:hover {
   cursor: pointer;
+}
+.next-dayname {
+  font-weight: bold;
+  color: rgba(219, 51, 177, 0.7);
+}
+.next-emoji {
+  width: 35px;
+}
+.future-data {
+  margin-bottom: 30px;
 }
