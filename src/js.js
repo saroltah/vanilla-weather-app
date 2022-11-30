@@ -12,7 +12,7 @@ let currentHumid = document.querySelector("#current-humid");
 function showPlace(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
-  let forecastUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+  let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
   axios.get(forecastUrl).then(displayForecast);
 
   let apiURL = `https://api.openweathermap.org/data/2.5/weather?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
@@ -101,7 +101,7 @@ function chooseCity(event) {
 
     let lon = response.data.coord.lon;
     let lat = response.data.coord.lat;
-    let forecastUrl = `https://api.openweathermap.org/data/3.0/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+    let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
     axios.get(forecastUrl).then(displayForecast);
 
     // celsius to fharenheit
