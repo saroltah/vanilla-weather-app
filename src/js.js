@@ -1,6 +1,5 @@
 //opening page
 
-navigator.geolocation.getCurrentPosition(showPlace);
 let apiKey = "1fa04c70c5487af6b7c48dd7dfcb0b3f";
 let units = "metric";
 let currentCityName = document.querySelector("#current-city-name");
@@ -9,6 +8,10 @@ let currentCondition = document.querySelector("#current-condition");
 let currentWind = document.querySelector("#current-wind");
 let currentHumid = document.querySelector("#current-humid");
 
+let changeCelcius = document.querySelector("#celsius");
+let changeFharenheit = document.querySelector("#fharenheit");
+
+navigator.geolocation.getCurrentPosition(showPlace);
 function showPlace(position) {
   let lat = position.coords.latitude;
   let lon = position.coords.longitude;
@@ -33,8 +36,7 @@ function showPlace(position) {
     CurrentEmoji.setAttribute("alt", `${response.data.weather[0].description}`);
 
     //celsius to fharenheit
-    let changeCelcius = document.querySelector("#celsius");
-    let changeFharenheit = document.querySelector("#fharenheit");
+
     changeFharenheit.classList.add("link-like");
 
     changeCelcius.addEventListener("click", convertCelsius);
@@ -105,8 +107,7 @@ function chooseCity(event) {
     axios.get(forecastUrl).then(displayForecast);
 
     // celsius to fharenheit
-    let changeCelcius = document.querySelector("#celsius");
-    let changeFharenheit = document.querySelector("#fharenheit");
+
     changeFharenheit.classList.add("link-like");
     changeCelcius.classList.remove("link-like");
 
