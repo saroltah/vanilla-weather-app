@@ -51,30 +51,39 @@ function showPlace(position) {
 
     let lon = response.data.coord.lon;
     let lat = response.data.coord.lat;
-    let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+    apiKey = "fda3688b1db05987dd5d07c237aecfba";
+    let forecastUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
     axios.get(forecastUrl).then(displayForecast);
 
-    function displayForecast() {
+    function displayForecast(response) {
+      let forecastData = response.data.daily;
       let forecastElement = document.querySelector("#forecast");
       let forecastHTML = `<div class="row">`;
-      let futureDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-      futureDays.forEach(function (futureDay) {
+
+      forecastData.forEach(function (forecastDay) {
         forecastHTML =
           forecastHTML +
           `<div class="col">
-              <span class="next-dayname">${futureDay}</span>
+              <span class="next-dayname">${forecastDay.dt}</span>
               <br />
               <img
                 class="next-emoji"
                 id="next-emoji-0"
-                src="http://openweathermap.org/img/wn/01d@2x.png"
+                src="http://openweathermap.org/img/wn/${
+                  forecastDay.weather[0].icon
+                }@2x.png"
                 alt="icon"
               />
 
               <br />
-              <span class="next-degree">0  1</span>
+              <span class="next-degree min">${Math.round(
+                forecastDay.temp.min
+              )}° </span>
+               <span class="next-degree max"> ${Math.round(
+                 forecastDay.temp.max
+               )}° </span>
               <br />
-        <span class="next-condition">Condi</span>
+        <span class="next-condition">${forecastDay.weather[0].main}</span>
        
           </div>
           `;
@@ -82,7 +91,6 @@ function showPlace(position) {
 
       forecastElement.innerHTML = forecastHTML;
     }
-
     //celsius to fharenheit
 
     changeFharenheit.classList.add("link-like");
