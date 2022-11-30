@@ -35,11 +35,6 @@ function showPlace(position) {
     );
     CurrentEmoji.setAttribute("alt", `${response.data.weather[0].description}`);
 
-    let lon = response.data.coord.lon;
-    let lat = response.data.coord.lat;
-    let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
-    axios.get(forecastUrl).then(displayForecast);
-
     //searchCity
 
     let searchCity = document.querySelector("#search-city");
@@ -50,6 +45,42 @@ function showPlace(position) {
       let cityInput = document.querySelector("#type-city");
       let searchURL = `https://api.openweathermap.org/data/2.5/weather?q=${cityInput.value}&appid=${apiKey}&units=${units}`;
       axios.get(searchURL).then(showTemperature);
+    }
+
+    //forecast
+
+    let lon = response.data.coord.lon;
+    let lat = response.data.coord.lat;
+    let forecastUrl = `https://api.openweathermap.org/data/2.5/forecast?lat=${lat}&lon=${lon}&appid=${apiKey}&units=${units}`;
+    axios.get(forecastUrl).then(displayForecast);
+
+    function displayForecast() {
+      let forecastElement = document.querySelector("#forecast");
+      let forecastHTML = `<div class="row">`;
+      let futureDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
+      futureDays.forEach(function (futureDay) {
+        forecastHTML =
+          forecastHTML +
+          `<div class="col">
+              <span class="next-dayname">${futureDay}</span>
+              <br />
+              <img
+                class="next-emoji"
+                id="next-emoji-0"
+                src="http://openweathermap.org/img/wn/01d@2x.png"
+                alt="icon"
+              />
+
+              <br />
+              <span class="next-degree">0  1</span>
+              <br />
+        <span class="next-condition">Condi</span>
+       
+          </div>
+          `;
+      });
+
+      forecastElement.innerHTML = forecastHTML;
     }
 
     //celsius to fharenheit
@@ -79,34 +110,6 @@ function showPlace(position) {
 
 //forecast
 
-function displayForecast() {
-  let forecastElement = document.querySelector("#forecast");
-  let forecastHTML = `<div class="row">`;
-  let futureDays = ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"];
-  futureDays.forEach(function (futureDay) {
-    forecastHTML =
-      forecastHTML +
-      `<div class="col">
-              <span class="next-dayname">${futureDay}</span>
-              <br />
-              <img
-                class="next-emoji"
-                id="next-emoji-0"
-                src="http://openweathermap.org/img/wn/01d@2x.png"
-                alt="icon"
-              />
-
-              <br />
-              <span class="next-degree">0  1</span>
-              <br />
-        <span class="next-condition">Condi</span>
-       
-          </div>
-          `;
-  });
-
-  forecastElement.innerHTML = forecastHTML;
-}
 //date
 
 let now = new Date();
