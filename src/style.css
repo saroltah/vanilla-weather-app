@@ -72,6 +72,10 @@ small {
 .next-emoji {
   width: 35px;
 }
+
+.min-degree {
+  color: rgb(177, 185, 191);
+}
 .future-data {
   margin-bottom: 30px;
 }

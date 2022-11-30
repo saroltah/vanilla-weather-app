@@ -81,10 +81,10 @@ function showPlace(position) {
               />
 
               <br />
-              <span class="next-degree max">${Math.round(
+              <span class="max-degree">${Math.round(
                 forecastDay.temp.max
               )}° </span>
-               <span class="next-degree min"> ${Math.round(
+               <span class="min-degree"> ${Math.round(
                  forecastDay.temp.min
                )}° </span>
               <br />
