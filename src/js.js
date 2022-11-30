@@ -60,11 +60,16 @@ function showPlace(position) {
       let forecastElement = document.querySelector("#forecast");
       let forecastHTML = `<div class="row">`;
 
+      function formatDay(timestamp) {
+        let futureDate = new Date(timestamp * 1000);
+        let futureDay = futureDate.getDay();
+        return days[futureDay];
+      }
       forecastData.forEach(function (forecastDay) {
         forecastHTML =
           forecastHTML +
           `<div class="col">
-              <span class="next-dayname">${forecastDay.dt}</span>
+              <span class="next-dayname">${formatDay(forecastDay.dt)}</span>
               <br />
               <img
                 class="next-emoji"
@@ -76,11 +81,11 @@ function showPlace(position) {
               />
 
               <br />
-              <span class="next-degree min">${Math.round(
-                forecastDay.temp.min
+              <span class="next-degree max">${Math.round(
+                forecastDay.temp.max
               )}° </span>
-               <span class="next-degree max"> ${Math.round(
-                 forecastDay.temp.max
+               <span class="next-degree min"> ${Math.round(
+                 forecastDay.temp.min
                )}° </span>
               <br />
         <span class="next-condition">${forecastDay.weather[0].main}</span>
