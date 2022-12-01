@@ -58,12 +58,11 @@
 small {
   font-style: italic;
 }
-.link-like {
-  color: #69aadd;
-  text-decoration: underline #69aadd;
+.gitlink {
+  color: rgba(219, 51, 177, 0.7);
 }
-.link-like:hover {
-  cursor: pointer;
+small {
+  color: rgb(177, 185, 191);
 }
 .next-dayname {
   font-weight: bold;
