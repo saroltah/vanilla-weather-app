@@ -6,6 +6,7 @@
   margin-top: 30px;
   text-align: center;
   font-family: "Klee One", cursive;
+  box-shadow: 16px 3px 28px 5px rgba(163, 27, 225, 0.2);
 }
 .search-engine {
   margin-bottom: 25px;
@@ -16,6 +17,8 @@
   border-radius: 10px;
   box-shadow: 16px 3px 28px 5px rgba(163, 27, 225, 0.2);
   text-align: center;
+  width: 260px;
+  font-size: 18px;
 }
 .type-city:hover {
   border: 2px solid rgba(219, 51, 177, 0.7);
