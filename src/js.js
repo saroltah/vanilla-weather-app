@@ -62,10 +62,11 @@ function showPlace(position) {
         let futureDay = futureDate.getDay();
         return days[futureDay];
       }
-      forecastData.forEach(function (forecastDay) {
-        forecastHTML =
-          forecastHTML +
-          `<div class="col-3 nextdays">
+      forecastData.forEach(function (forecastDay, index) {
+        if (index < 5) {
+          forecastHTML =
+            forecastHTML +
+            `<div class="col nextdays">
               <span class="next-dayname">${formatDay(forecastDay.dt)}</span>
               <br />
               <img
@@ -88,6 +89,7 @@ function showPlace(position) {
        
           </div>
           `;
+        }
       });
 
       forecastElement.innerHTML = forecastHTML;
