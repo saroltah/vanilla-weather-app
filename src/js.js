@@ -65,7 +65,7 @@ function showPlace(position) {
       forecastData.forEach(function (forecastDay) {
         forecastHTML =
           forecastHTML +
-          `<div class="col-3">
+          `<div class="col-3 nextdays">
               <span class="next-dayname">${formatDay(forecastDay.dt)}</span>
               <br />
               <img
@@ -76,7 +76,6 @@ function showPlace(position) {
                 }@2x.png"
                 alt="icon"
               />
-
               <br />
               <span class="max-degree id="max-celcius">${Math.round(
                 forecastDay.temp.max
