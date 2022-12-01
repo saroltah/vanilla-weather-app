@@ -65,7 +65,7 @@ function showPlace(position) {
       forecastData.forEach(function (forecastDay) {
         forecastHTML =
           forecastHTML +
-          `<div class="col">
+          `<div class="col-3">
               <span class="next-dayname">${formatDay(forecastDay.dt)}</span>
               <br />
               <img
