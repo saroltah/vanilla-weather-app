@@ -6,9 +6,6 @@ let currentCondition = document.querySelector("#current-condition");
 let currentWind = document.querySelector("#current-wind");
 let currentHumid = document.querySelector("#current-humid");
 
-let changeCelcius = document.querySelector("#celsius");
-let changeFharenheit = document.querySelector("#fharenheit");
-
 //opening page
 
 navigator.geolocation.getCurrentPosition(showPlace);
@@ -81,10 +78,10 @@ function showPlace(position) {
               />
 
               <br />
-              <span class="max-degree">${Math.round(
+              <span class="max-degree id="max-celcius">${Math.round(
                 forecastDay.temp.max
               )}° </span>
-               <span class="min-degree"> ${Math.round(
+               <span class="min-degree" id="min-celcius"> ${Math.round(
                  forecastDay.temp.min
                )}° </span>
               <br />
@@ -95,28 +92,6 @@ function showPlace(position) {
       });
 
       forecastElement.innerHTML = forecastHTML;
-    }
-    //celsius to fharenheit
-
-    changeFharenheit.classList.add("link-like");
-    changeCelcius.classList.remove("link-like");
-
-    changeCelcius.addEventListener("click", convertCelsius);
-    function convertCelsius(event) {
-      event.preventDefault();
-      changeCelcius.classList.remove("link-like");
-      changeFharenheit.classList.add("link-like");
-      currentDegree.innerHTML = Math.round(response.data.main.temp);
-    }
-
-    changeFharenheit.addEventListener("click", convertFharenheit);
-    function convertFharenheit(event) {
-      event.preventDefault();
-      changeFharenheit.classList.remove("link-like");
-      changeCelcius.classList.add("link-like");
-      currentDegree.innerHTML = Math.round(
-        response.data.main.temp * 1.8 + 32.0
-      );
     }
   }
 }
